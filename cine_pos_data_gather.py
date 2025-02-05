@@ -6,8 +6,6 @@ import pandas as pd
 s3 = boto3.client('s3')
 
 def lambda_handler(event, context):
-    # source_bucket = 'cinexideralposjoan'
-    # target_bucket = 'cinexideralposjoan-analisis'
     source_bucket = event['Records'][0]['s3']['bucket']['name']
     target_bucket = event['Records'][0]['s3']['targetbucket']['name']
 
