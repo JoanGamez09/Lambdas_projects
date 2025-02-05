@@ -6,9 +6,9 @@ import os
 s3 = boto3.client('s3')
 
 def lambda_handler(event, context):
-    bucket_name = "bucketconjson"
-    object_key = "movies.json"
-    target_bucket = "targetbucketjoan"
+    bucket_name = event["bucket"]
+    object_key = event["object"]
+    target_bucket = event["target_bucket"]
 
     try:
         response = s3.get_object(Bucket=bucket_name, Key=object_key)
